@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Mariage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(to right, gold, white);
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            color: #444;
+        }
+        .date {
+            font-size: 1.5em;
+            color: #666;
+        }
+        .main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .details {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: calc(33% - 10px);
+            height: auto;
+            border: 2px solid gold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+        .qr-code {
+            margin-top: 10px;
+            border: 5px solid gold;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (prompt("Entrez le mot de passe pour modifier les photos:") === "andrea1703") {
+                document.querySelectorAll('.gallery img, .main-image').forEach(img => {
+                    img.addEventListener('click', () => {
+                        const newSrc = prompt("Entrez le nouveau lien de l'image:", img.src);
+                        if (newSrc) img.src = newSrc;
+                    });
+                });
+            } else {
+                alert("Accès refusé");
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue à notre mariage</h1>
+        <p class="date">Date: 27 Décembre 2024</p>
+    </header>
+
+    <img src="main-image.jpg" alt="Image principale du mariage" class="main-image">
+
+    <section class="details">
+        <p><strong>Mairie :</strong> 08 Août 2025</p>
+        <p><strong>Cérémonie à l'église :</strong> 09 Août 2025</p>
+        <p><strong>Vin d'honneur et repas :</strong> 09 Août 2025</p>
+        <p><strong>Brunch :</strong> 10 Août 2025</p>
+    </section>
+
+    <section class="gallery">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+        <!-- Ajouter d'autres photos ici -->
+    </section>
+
+    <footer>
+        <p>Partagez vos photos avec nous en scannant ce QR code :</p>
+        <img src="qr-code.png" alt="QR Code pour déposer vos photos" class="qr-code">
+    </footer>
+</body>
+</html>
